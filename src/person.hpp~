@@ -1,0 +1,7 @@
+class Person {
+private:
+  int id, num_kp;
+  std::string bpnames[] = {"nose", "neck", "r_shoul", "r_elbow", "r_wrist", "l_shoul", "l_elbow", "l_wrist", "r_hip", "r_knee", "r_ankle", "l_hip", "l_knee", "l_ankle", "r_eye", "l_eye", "r_ear", "l_ear"};
+  
+
+};

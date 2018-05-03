@@ -1,0 +1,18 @@
+<launch>
+
+  <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch">
+    <arg name="base_name" value="camera_0" />
+    <arg name="sensor" value="004783654147" />
+    <arg name="publish_tf" value="true" />
+  </include>
+
+  <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch">
+    <arg name="base_name" value="camera_1" />
+    <arg name="sensor" value="000330160547" />
+    <arg name="publish_tf" value="true" />
+  </include>
+
+</launch>
+<!-- roslaunch kinect2_bridge kinect2_bridge.launch sensor:=004783654147 base_name:=kright -->
+<!-- roslaunch kinect2_bridge kinect2_bridge.launch sensor:=000330160547 base_name:=kleft -->
+<!-- sudo nano /sys/module/usbcore/parameters/usbfs_memory_mb  (change to about 128)-->

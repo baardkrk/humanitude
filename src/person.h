@@ -1,0 +1,31 @@
+#ifndef HUMANITUDE_PERSON_H
+#define HUMANITUDE_PERSON_H
+
+#include <string>
+#include <vector>
+#include <ros/ros.h>
+#include <geometry_msgs/Point.h>
+#include <tf/transform_broadcaster.h>
+#include <visualization_msgs/Marker.h>
+
+class Person {
+private:
+  int id, num_kp;
+  //std::vector< std::vector<float> >coordinates;
+  geometry_msgs::Point coordinates[18];
+  static std::string bpnames[];
+  std::string base_frame;
+  ros::NodeHandle node;
+
+  ros::Publisher marker_pub;
+  tf::TransformBroadcaster br;
+  tf::Transform transform;
+  void publish_line_strip(geometry_msgs::Point a, geometry_msgs::Point b, int body_part);
+  
+ public:
+  Person(int _id, std::string _base_frame, geometry_msgs::Point _coordinates[18]);
+  void draw_skeleton();
+  void broadcast_keypoint_frames();
+};
+
+#endif // HUMANITUDE_PERSON_H
